@@ -5,16 +5,19 @@ class PagesController < ApplicationController
 
   def home
   end
-  
+
   def inside
   end
-   
-  
+
+  def user
+    @user = current_user
+  end
+
   def email
     @name = params[:name]
     @email = params[:email]
     @message = params[:message]
-    
+
     if @name.blank?
       flash[:alert] = "Please enter your name before sending your message. Thank you."
       render :contact
@@ -27,10 +30,10 @@ class PagesController < ApplicationController
     elsif @message.scan(/<a href=/).size > 0 || @message.scan(/\[url=/).size > 0 || @message.scan(/\[link=/).size > 0 || @message.scan(/http:\/\//).size > 0
       flash[:alert] = "You can't send links. Thank you for your understanding."
       render :contact
-    else    
+    else
       ContactMailer.contact_message(@name,@email,@message).deliver
       redirect_to root_path, notice: "Your message was sent. Thank you."
     end
   end
-  
+
 end

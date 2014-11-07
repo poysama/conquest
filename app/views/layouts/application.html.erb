@@ -9,28 +9,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div
+    class="fb-like"
+    data-share="true"
+    data-width="450"
+    data-show-faces="true">
+  </div>
   <div id="wrap">
     <header>
-      <%= render 'layouts/navigation' %>
+    <%= render 'layouts/navigation' %>
     </header>
-      
+
     <div class="container">
-       
+
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3 text-center">
           <%= render 'layouts/messages' %>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col-sm-12">
           <%= yield %>
         </div>     
       </div>  
-      
+
     </div>
   </div>
-    
+
   <%= render 'layouts/footer' %>    
 
 </body>

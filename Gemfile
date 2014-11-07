@@ -50,3 +50,9 @@ end
 group :production do
   gem 'unicorn'
 end
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+
